@@ -10,28 +10,37 @@ namespace app
 
             textArt.Welcome();
 
+            bool exit = false;
 
-            var tableData = new List<List<object>>
-{
-                new List<object>{ "Sakura Yamamoto", "Support Engineer", "London", 46},
-                new List<object>{ "Serge Baldwin", "Data Coordinator", "San Francisco", 28, "something else" },
-                new List<object>{ "Shad Decker", "Regional Director", "Edinburgh"},
-};
+            while (!exit)
+            {
+                Console.WriteLine("+--------------------+");
+                Console.WriteLine("|     Main Menu      |");
+                Console.WriteLine("| Add Task       [A] |");
+                Console.WriteLine("| Update Task    [U] |");
+                Console.WriteLine("| Delete Task    [D] |");
+                Console.WriteLine("| List Tasks     [R] |");
+                Console.WriteLine("| Close System   [X] |");
+                Console.WriteLine("+--------------------+");
 
-            ConsoleTableBuilder
-                .From(tableData)
-                .WithTitle("CONTACTS ", ConsoleColor.White, ConsoleColor.DarkGray)
-                .WithColumn("Id", "First Name", "Sur Name").ExportAndWriteLine();
+                string option = Console.ReadLine();
+
+                switch (option.ToLower())
+                {
+                    case "a":
+                        Task.AddTask();
+                    break;
+
+                    case "x":
+                        Console.WriteLine("");
+                        exit = true;
+                        break;
+                }
 
 
-            Console.ReadKey();
-        }
+            }
 
-        public static void SuccessMsg(string msg)
-        {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine(msg);
-            Console.ResetColor();
+            textArt.Bye();
         }
     }
 }

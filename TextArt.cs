@@ -1,5 +1,6 @@
 ﻿namespace app
 {
+    //Create art with: https://www.asciiart.eu/text-to-ascii-art
     class textArt
     {
         public static void Welcome()
@@ -31,6 +32,33 @@
             |                                   |___/                /_/  |
             +=============================================================+
             ");
+            Console.ResetColor();
+        }
+        public static void SuccessMsg(string msg)
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine(msg);
+            Console.ResetColor();
+        }
+
+        public static void ErrorMsg(string msg)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(msg);
+            Console.ResetColor();
+        }
+
+        public static void WarningMsg(string msg)
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine(msg);
+            Console.ResetColor();
+        }
+
+        public static void QuestionMsg(string msg)
+        {
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine(msg);
             Console.ResetColor();
         }
     }
